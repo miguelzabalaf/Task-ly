@@ -1,0 +1,121 @@
+.aside {
+  height: 100%;
+  max-width: 300px;
+  background-color: #FFF;
+  border-right: 1px solid rgb(230, 230, 230);
+  padding: 15px 15px 15px;
+}
+
+.btn-new-project {
+  margin: 0;
+  width: 100%;
+  display: block;
+  padding: 15px 10px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #228DE5;
+  color: #FFF;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.aside .btn-new-project:hover {
+  transition: all 0.3s;
+  filter: brightness(1.1);
+}
+
+.aside .btn-new-project:active {
+  transition: all 0.3s;
+  filter: brightness(0.95);
+}
+
+.project-list {
+  height: 95%;
+  padding: 15px 0;
+}
+
+.project-list-header {
+  font-size: 20px;
+  color: #111;
+  margin-bottom: 15px;
+} 
+
+.project {
+  background-color: rgb(245, 245, 245);
+  height: auto;
+  margin-bottom: 15px;
+  padding: 10px;
+}
+
+.project-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.project-header-image {
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #858585;
+  margin-right: 10px;
+} 
+
+.project-header-image span {
+  color: #FFF;
+  font-size: 12px;
+}
+
+.project-header-title {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.project-header-title p {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.project-description {
+  margin-bottom: 10px;
+}
+
+.project-description p {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  color: #555;
+  font-size: 14px;
+}
+
+.project-stadistics {
+  display: flex;
+  align-items: center;
+}
+
+.progress {
+  flex: 4;
+}
+
+.progress .bar {
+  height: 7.5px;
+  /* border: 1px solid blue; */
+  background-color: rgb(215, 215, 215);
+}
+
+.issues {
+  flex: 1;
+}
+
+.issues p {
+  font-size: 12px;
+  text-align: end;
+  opacity: 0.75;
+}

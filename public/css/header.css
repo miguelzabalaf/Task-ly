@@ -1,0 +1,67 @@
+.header {
+  position: relative;
+  z-index: 1;
+  height: 65px;
+  background: #FFF;
+  border-bottom: 1px solid rgb(230, 230, 230);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+}
+
+.header-logo {
+  width: 85px;
+}
+.header-logo img {
+  width: 100%;
+}
+
+.header-options {
+  display: flex;
+  align-items: center;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  margin-right: 25px;
+}
+
+.user .user-logo {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #228DE5;
+  margin-right: 10px;
+}
+
+.user .user-logo span {
+  color: #FFF;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.user .user-name span {
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.log-out {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.log-out img {
+  width: 100%;
+  opacity: 0.25;
+  transition: all 0.3s;
+}
+
+.log-out img:hover {
+  opacity: .5;
+}

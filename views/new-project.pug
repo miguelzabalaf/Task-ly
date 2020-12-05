@@ -1,0 +1,18 @@
+extends shared/layout
+
+block content
+  .principal-content
+    h1.title-page #{titlePage}
+
+    form.add-project(action="/new-project" method="POST")
+      .input
+        label(for="projectName" class="input-label") Project Name 
+        input(type="text" id="projectName" name="projectName" placeholder="Project Name")
+      .input
+        label(for="description" class="input-label") Description
+        textarea(type="text" id="description" name="description" placeholder="Description") 
+      .send-action
+        input(type="submit" value="Add" class="btn-primary")
+    if errors
+      each error in errors
+        small.error-message #{error.text} *
