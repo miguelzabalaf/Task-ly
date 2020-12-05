@@ -2,21 +2,28 @@
 const Projects = require("../models/Projects");
 
 // Home : GET
-exports.projectsHome = (req, resp) => {
+exports.projectsHome = async (req, resp) => {
+  // Find all projects
+  const projects = await Projects.findAll();
+
   resp.render('index', {
-    titlePage: 'Home'
+    titlePage: 'Home',
+    projects // Pass the results to view
   });
 }
 
 // New Project: GET
-exports.formNewPRoject = (req, resp) => {
+exports.formNewPRoject = async (req, resp) => {
+  // Find all projects
+  const projects = await Projects.findAll();
   resp.render('new-project', {
-    titlePage: 'New Project'
+    titlePage: 'New Project',
+    projects
   });
 }
 
 // New Project: POST
-exports.newPRoject = (req, resp) => {
+exports.newPRoject = async (req, resp) => {
   // Send to the console what the user types
   console.log(req.body);
   // console.log(req.body);
@@ -37,9 +44,31 @@ exports.newPRoject = (req, resp) => {
     })
   } else {
     // Inser to DB
-    Projects.create({ name: projectName, description: description })
-      .then(() => console.log('Se ha guardado Exitosamente el registro'))
-      .catch((err) => console.log(err))
+    const project = await Projects.create({ name: projectName, description: description });
+    // Navigate to '/' after project insert in to DB
+    resp.redirect('/')
   }
 
+}
+
+// Show Project by URL
+exports.projectByUrl = async (req, resp, next) => {
+  // Find all projects
+  const projects = await Projects.findAll();
+  const param = req.params.url
+  const project = await Projects.findOne({
+    where: {
+      url: param
+    }
+  })
+
+  if (!project) return next();
+
+  // Render Vista
+  resp.render('project', {
+    titlePage: `${project.name}`,
+    project,
+    projects
+  })
+  // console.log('project find', project);
 }

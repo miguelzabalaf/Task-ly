@@ -12,7 +12,7 @@ html(lang="en")
 
     header.header
       a(href="/" class="header-logo")
-        img(src="assets/images/logo.svg", alt="").header-logo
+        img(src="/assets/images/logo.svg", alt="").header-logo
 
       .header-options
 
@@ -23,7 +23,7 @@ html(lang="en")
             span Miguel Zabala Figueroa
 
         .log-out
-          img(src="assets/images/log-out.svg", alt="")
+          img(src="/assets/images/log-out.svg", alt="")
     
     main.main
       aside.aside
@@ -33,18 +33,20 @@ html(lang="en")
         .project-list
           h2.project-list-header Projects
         
-          .project
-            .project-header
-              .project-header-image 
-                span C
-              .project-header-title
-                p Cloe Communities
-            .project-description
-              p Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut autem vitae ipsa dolorem voluptate voluptates ab fugiat dolore ullam laudantium!
-            .project-stadistics
-              .progress
-                .bar
-              .issues
-                p 3 / 12
-
+          if projects
+            each project in projects
+              a(href=`/projects/${project.url}`).project
+                .project-header
+                  .project-header-image 
+                    span #{project.name.slice(0, 1)}
+                  .project-header-title
+                    p #{project.name}
+                .project-description
+                  p #{project.description}
+                .project-stadistics
+                  .progress
+                    .bar
+                  .issues
+                    p 3 / 12
+      //- pre= consultResults(projects)
       block content

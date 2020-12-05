@@ -1,6 +1,6 @@
 .aside {
   height: 100%;
-  max-width: 300px;
+  width: 300px;
   background-color: #FFF;
   border-right: 1px solid rgb(230, 230, 230);
   padding: 15px 15px 15px;
@@ -41,6 +41,9 @@
 } 
 
 .project {
+  display: block;
+  text-decoration: none;
+  color: #000;
   background-color: rgb(245, 245, 245);
   height: auto;
   margin-bottom: 15px;
