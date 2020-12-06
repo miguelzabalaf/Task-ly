@@ -1,0 +1,9 @@
+.description-project {
+  font-size: 16px;
+}
+
+@media screen and (max-width: 425px) {
+  .description-project {
+    font-size: 14px;
+  }
+}

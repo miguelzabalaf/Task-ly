@@ -3,3 +3,7 @@ extends shared/layout
 block content
   .principal-content
     h1.title-page #{titlePage}
+      a(href=`/project/edit/${project.id}` class="icon-container")
+        img(src="/assets/icons/icon-edit.svg", alt="" class="icon")
+
+    p.description-project #{project.description}

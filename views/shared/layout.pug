@@ -26,7 +26,7 @@ html(lang="en")
           img(src="/assets/images/log-out.svg", alt="")
     
     main.main
-      aside.aside
+      aside.aside-web
 
         a(href="/new-project" class="btn-new-project") New Project
 
@@ -47,6 +47,18 @@ html(lang="en")
                   .progress
                     .bar
                   .issues
-                    p 3 / 12
+                    p 3/12
       //- pre= consultResults(projects)
+      aside.aside-mobile
+        a(href="/new-project" class="btn-new-project-mobile") +
+
+        .project-list-mobile
+          if projects
+            each project in projects
+              a(href=`/projects/${project.url}`).project
+                .project-image
+                  span #{project.name.slice(0, 1)}
+                .project-issues
+                  p 3/12
+
       block content

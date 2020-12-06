@@ -24,6 +24,7 @@ exports.formNewPRoject = async (req, resp) => {
 
 // New Project: POST
 exports.newPRoject = async (req, resp) => {
+  const projects = await Projects.findAll();
   // Send to the console what the user types
   console.log(req.body);
   // console.log(req.body);
@@ -40,27 +41,31 @@ exports.newPRoject = async (req, resp) => {
   if (errors.length > 0) {
     resp.render('new-project', {
       titlePage: 'New Project',
-      errors
+      errors,
+      projects
     })
   } else {
     // Inser to DB
     const project = await Projects.create({ name: projectName, description: description });
     // Navigate to '/' after project insert in to DB
-    resp.redirect('/')
+    resp.redirect(`/projects/${project.url}`)
   }
 
 }
 
 // Show Project by URL
 exports.projectByUrl = async (req, resp, next) => {
-  // Find all projects
-  const projects = await Projects.findAll();
   const param = req.params.url
-  const project = await Projects.findOne({
+
+  const projectsPRomise = Projects.findAll();
+
+  const projectPromise = Projects.findOne({
     where: {
       url: param
     }
   })
+
+  const [projects, project] = await Promise.all([projectsPRomise, projectPromise])
 
   if (!project) return next();
 
@@ -71,4 +76,69 @@ exports.projectByUrl = async (req, resp, next) => {
     projects
   })
   // console.log('project find', project);
+}
+
+// Edit Project by ID
+exports.projectEdityId = async (req, resp, next) => {
+
+  const param = req.params.id
+
+  const projectsPRomise = Projects.findAll();
+
+  const projectPromise = Projects.findOne({
+    where: {
+      id: param
+    }
+  })
+
+  const [projects, project] = await Promise.all([projectsPRomise, projectPromise])
+
+
+  resp.render('new-project', {
+    titlePage: `Edit Project: ${project.name}`,
+    project,
+    projects,
+    edit: true
+  })
+}
+
+// New Project: POST
+exports.editPRoject = async (req, resp) => {
+
+  const param = req.params.id
+
+  const projectsPRomise = Projects.findAll();
+
+  const projectPromise = Projects.findOne({
+    where: {
+      id: param
+    }
+  })
+
+  const [projects, project] = await Promise.all([projectsPRomise, projectPromise])
+
+  const { projectName, description } = req.body;
+
+  let errors = [];
+
+  if (!projectName) {
+    errors.push({ 'text': 'Add a name to the project' })
+  }
+
+  if (errors.length > 0) {
+    resp.render('new-project', {
+      titlePage: 'New Project',
+      errors,
+      projects
+    })
+  } else {
+    // Update in DB
+    await Projects.update(
+      { name: projectName, description: description },
+      { where: { id: param } }
+    );
+    // Navigate to '/' after project insert in to DB
+    resp.redirect(`/projects/${project.url}`)
+  }
+
 }

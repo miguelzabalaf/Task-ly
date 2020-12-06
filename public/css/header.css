@@ -12,6 +12,8 @@
 
 .header-logo {
   width: 85px;
+  display: flex;
+  align-items: center;
 }
 .header-logo img {
   width: 100%;
@@ -53,6 +55,8 @@
 .log-out {
   width: 25px;
   height: 25px;
+  display: flex;
+  align-items: center;
   cursor: pointer;
 }
 
@@ -64,4 +68,13 @@
 
 .log-out img:hover {
   opacity: .5;
+}
+
+@media screen and (max-width: 425px) {
+  .user {
+    margin-right: 5px;
+  }
+  .user-name {
+    display: none;
+  }
 }
