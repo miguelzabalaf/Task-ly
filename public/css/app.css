@@ -41,6 +41,7 @@ body {
 }
 
 .principal-content {
+    position: relative;
     display: block;
     width: 100%;
     margin: 15px;
@@ -138,6 +139,36 @@ textarea::-webkit-input-placeholder {
     color: tomato;
     padding-left: 5px;
 }
+
+/* SWAL2 */
+.swal2-icon.swal2-success {
+    border-color: #a5dc86;
+    color: #a5dc86;
+    font-size: 10px;
+}
+.swal2-icon.swal2-warning {
+    border-color: #ff7575;
+    color: #ff322b;
+    font-size: 10px;
+}
+h2#swal2-title {
+    font-size: 20px;
+}
+#swal2-content {
+    opacity: 0.5;
+    font-size: 15px;
+}
+
+button.swal2-cancel.swal2-styled {
+    background-color: rgba(221, 51, 51, 0.15) !important;
+    color: red;
+}
+
+.swal2-styled:focus {
+    outline: 0;
+    box-shadow: 0 0 0 3px rgba(100,150,200,0) !important;
+}
+/* SWAL2 */
 
 
 /* --------------------------------------------------- */

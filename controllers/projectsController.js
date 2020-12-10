@@ -79,7 +79,7 @@ exports.projectByUrl = async (req, resp, next) => {
 }
 
 // Edit Project by ID
-exports.projectEdityId = async (req, resp, next) => {
+exports.projectEditById = async (req, resp, next) => {
 
   const param = req.params.id
 
@@ -141,4 +141,19 @@ exports.editPRoject = async (req, resp) => {
     resp.redirect(`/projects/${project.url}`)
   }
 
+}
+
+// Delete PRoject: POST
+exports.deleteProjectByUrl = async (req, resp, next) => {
+  // console.log(req);
+  // console.log(req.params);
+  // console.log(req.query);
+  const { urlProject } = req.query;
+  const result = await Projects.destroy({ where: { url: urlProject } });
+
+  if (!result) {
+    return next();
+  }
+
+  resp.status(200).send('Project removed successfully.');
 }

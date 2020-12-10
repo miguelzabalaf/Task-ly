@@ -11,3 +11,6 @@ block content
     if errors
       each error in errors
         small.error-message #{error.text} *
+    
+    if edit
+      button.delete-project#button-delete(data-project-url=project.url type="button") Delete Project

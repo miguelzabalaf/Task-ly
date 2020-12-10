@@ -1,0 +1,1 @@
+import taks from './modules/projects';
