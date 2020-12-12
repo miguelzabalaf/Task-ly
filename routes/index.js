@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const { projectsHome, formNewPRoject, newPRoject, projectByUrl, projectEditById, editPRoject, deleteProjectByUrl } = require('../controllers/projectsController');
-
+const { newTaskByUrl } = require('../controllers/tasksController');
 // import Express-Validator
-const { body } = require('express-validator/check')
+const { body } = require('express-validator/check');
+
 
 
 module.exports = () => {
@@ -27,6 +28,9 @@ module.exports = () => {
 
   // Delete Project
   router.delete('/projects/:url', deleteProjectByUrl)
+
+  // Add Task in project
+  router.post('/new-task/:url', newTaskByUrl)
 
   return router;
 }

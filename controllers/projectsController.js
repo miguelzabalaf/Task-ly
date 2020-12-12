@@ -1,5 +1,6 @@
 // Imports models
 const Projects = require("../models/Projects");
+const Tasks = require("../models/Tasks");
 
 // Home : GET
 exports.projectsHome = async (req, resp) => {
@@ -67,13 +68,19 @@ exports.projectByUrl = async (req, resp, next) => {
 
   const [projects, project] = await Promise.all([projectsPRomise, projectPromise])
 
+  // Consult Tasks for this project
+  const tasks = await Tasks.findAll({ where: { projectId: project.id } })
+  // console.log('tasks: ', tasks);
+
+
   if (!project) return next();
 
   // Render Vista
   resp.render('project', {
     titlePage: `${project.name}`,
     project,
-    projects
+    projects,
+    tasks
   })
   // console.log('project find', project);
 }

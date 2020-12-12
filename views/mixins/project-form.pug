@@ -8,4 +8,4 @@ mixin projectForm(project = {})
       label(for="description" class="input-label") Description
       textarea(type="text" id="description"   name="description" placeholder="This is awsome chat app") #{edit ? project.description : ''}
     .send-action
-      input(type="submit" value=`${ edit ? 'Update' : 'Add' }` class="btn-primary")
+      input(type="submit" value=`${ edit ? 'Update' : 'Create a Project' }` class="btn-primary")

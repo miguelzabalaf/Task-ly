@@ -28,15 +28,17 @@ if (buttonDelete) {
           .then((resp) => {
             console.log(resp)
 
-            Swal.fire(
-              'Deleted!',
-              resp.data,
-              'success'
-            );
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: resp.data,
+              showConfirmButton: false,
+              timer: 1500
+            });
             // Redirec to Home
             setTimeout(() => {
               window.location.href = "/"
-            }, 3000)
+            }, 1500)
           })
           .catch(() => {
             Swal.fire({

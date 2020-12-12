@@ -13,6 +13,7 @@ const { RSA_NO_PADDING } = require('constants');
 
 // Import mnodel
 require('./models/Projects');
+require('./models/Tasks');
 
 // db.authenticate() Only Authentication
 db.sync()

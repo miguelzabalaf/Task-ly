@@ -1,5 +1,6 @@
 .add-project {
   border: 1px solid rgb(230, 230, 230);
+  border-radius: 3px;
   background-color: #FFF;
   padding: 15px;
   margin-bottom: 5px;

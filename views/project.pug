@@ -7,3 +7,41 @@ block content
         img(src="/assets/icons/icon-edit.svg", alt="" class="icon")
 
     p.description-project #{project.description}
+
+    //- h2.subtitle-page Create New Task
+    //- form.add-task(action=`/new-task/${project.url}` method="POST")
+    //-   label(for="task" class="input-label") Task
+    //-   input(type="text" id="task" value="" name="task" placeholder="Modularize the project" autocomplete="off").input 
+    //-   label(for="task_description" class="input-label") Task Description
+    //-   textarea(type="text" id="task_description"   name="task_description" placeholder="Start with the users module and after the tasks") #{false ? '' : ''}
+    //-   .submit
+    //-     input(type="submit" value="Create Task" class="btn-primary")
+    
+    //- pre #{consultResults(tasks)}
+    h2.subtitle-page Tasks
+    .tasks
+      .tasks-header
+        .tasks-header-taks
+          .dot
+          p #{tasks.length} Task(s)
+      .tasks-container
+        each task in tasks
+          .task
+            .task-title
+              h3 #{task.task}
+            .task-description
+              p #{task.task_description}
+
+    button.create-task-button Create Task
+      
+    #modalCreateTask.modal-create-task
+      .modal-create-task-content
+        .close &times;
+        h2.subtitle-page Create New Task
+        form.add-task(action=`/new-task/${project.url}` method="POST")
+          label(for="task" class="input-label") Task
+          input(type="text" id="task" value="" name="task" placeholder="Modularize the project" autocomplete="off").input 
+          label(for="task_description" class="input-label") Task Description
+          textarea(type="text" id="task_description"   name="task_description" placeholder="Start with the users module and after the tasks") #{false ? '' : ''}
+          .submit
+            input(type="submit" value="Create Task" class="btn-primary")

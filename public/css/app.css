@@ -1,3 +1,4 @@
+@import url('tasks.css');
 @import url('project.css');
 @import url('new-project.css');
 @import url('aside.css');
@@ -50,7 +51,16 @@ body {
 
 .title-page {
     font-size: 25px;
-    margin: 0px 0px 15px;
+    margin: 0px 0px 10px;
+    display: flex;
+    align-items: center;
+    border-left: 5px solid #228DE5;
+    padding-left: 5px;
+}
+
+.subtitle-page {
+    font-size: 20px;
+    margin: 15px 0px 5px;
     display: flex;
     align-items: center;
 }
@@ -73,14 +83,15 @@ body {
     margin-bottom: 15px;
 }
 
-.input input[type="text"] {
+input[type="text"] {
     border: 1px solid rgb(230, 230, 230);
     padding: 10px 5px;
     outline: none;
     width: 100%;
+    border-radius: 5px;
 }
 
-.input input[type="text"]:focus {
+input[type="text"]:focus {
     border: 1px solid #228DE5;
 }
 
@@ -91,17 +102,18 @@ textarea::-webkit-input-placeholder {
     opacity: 0.5; /*Change the opacity between 0 and 1*/
 }
 
-.input textarea[type="text"]:focus {
+textarea[type="text"]:focus {
     border: 1px solid #228DE5;
 }
 
-.input textarea[type="text"] {
+textarea[type="text"] {
     border: 1px solid rgb(230, 230, 230);
     padding: 10px 5px;
     outline: none;
     width: 100%;
-    min-height: 150px;
+    min-height: 100px;
     resize: vertical;
+    border-radius: 5px;
 }
 
 .input-label {
@@ -118,7 +130,7 @@ textarea::-webkit-input-placeholder {
     outline: none;
     border-radius: 5px;
     background-color: #228DE5;
-    padding: 10px 5px;
+    padding: 10px 15px;
     min-width: 100px;
     color: #FFF;
     font-weight: 500;
@@ -177,6 +189,10 @@ button.swal2-cancel.swal2-styled {
     .title-page {
         font-size: 20px;
         margin: 0px 0px 10px;
+    }
+    .subtitle-page {
+        font-size: 18px;
+        margin: 10px 0px 5px;
     }
     .principal-content {
         display: block;
