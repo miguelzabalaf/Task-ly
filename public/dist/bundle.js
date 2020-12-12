@@ -311,7 +311,17 @@ eval("var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;function
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/projects */ \"./public/js/modules/projects.js\");\n\n\n//# sourceURL=webpack://task-ly/./public/js/app.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/projects */ \"./public/js/modules/projects.js\");\n/* harmony import */ var _modules_modalCreateTask__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/modalCreateTask */ \"./public/js/modules/modalCreateTask.js\");\n/* harmony import */ var _modules_modalCreateTask__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_modules_modalCreateTask__WEBPACK_IMPORTED_MODULE_1__);\n\n\n\n//# sourceURL=webpack://task-ly/./public/js/app.js?");
+
+/***/ }),
+
+/***/ "./public/js/modules/modalCreateTask.js":
+/*!**********************************************!*
+  !*** ./public/js/modules/modalCreateTask.js ***!
+  \**********************************************/
+/***/ (() => {
+
+eval("var createTaskButton = document.querySelector('#create-task-button');\nvar modalCreateTask = document.querySelector('#modalCreateTask');\nvar modalCreateTaskClose = document.querySelector('.modalCreateTaskClose');\n\nif (createTaskButton) {\n  createTaskButton.onclick = function () {\n    modalCreateTask.style.display = \"block\";\n  };\n\n  window.onclick = function (event) {\n    if (event.target == modalCreateTask || event.target == modalCreateTaskClose) {\n      modalCreateTask.style.display = \"none\";\n    }\n  };\n}\n\n//# sourceURL=webpack://task-ly/./public/js/modules/modalCreateTask.js?");
 
 /***/ }),
 

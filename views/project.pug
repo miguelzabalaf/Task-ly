@@ -18,6 +18,7 @@ block content
     //-     input(type="submit" value="Create Task" class="btn-primary")
     
     //- pre #{consultResults(tasks)}
+
     h2.subtitle-page Tasks
     .tasks
       .tasks-header
@@ -31,12 +32,15 @@ block content
               h3 #{task.task}
             .task-description
               p #{task.task_description}
+    if errors
+      each error in errors
+        small.error-message #{error.text} *
 
-    button.create-task-button Create Task
+    button#create-task-button Create Task
       
     #modalCreateTask.modal-create-task
       .modal-create-task-content
-        .close &times;
+        .modalCreateTaskClose.close &times;
         h2.subtitle-page Create New Task
         form.add-task(action=`/new-task/${project.url}` method="POST")
           label(for="task" class="input-label") Task
@@ -44,4 +48,4 @@ block content
           label(for="task_description" class="input-label") Task Description
           textarea(type="text" id="task_description"   name="task_description" placeholder="Start with the users module and after the tasks") #{false ? '' : ''}
           .submit
-            input(type="submit" value="Create Task" class="btn-primary")
+            input(type="submit" value="Create Task" class="btn-primary").modalCreateTaskClose

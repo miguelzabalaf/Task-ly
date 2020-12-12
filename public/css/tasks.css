@@ -34,7 +34,7 @@
 }
 
 .tasks-container {
-  max-height: 50vh;
+  height: 45vh;
   overflow-y: auto;
   flex-shrink: 0;
 }
@@ -88,7 +88,7 @@
   color: #666;
 }
 
-.create-task-button {
+#create-task-button {
   border: none;
   outline: none;
   margin: 0;
@@ -108,7 +108,7 @@
   right: 15px;
 }
 
-.create-task-button:hover, .create-task-button:active {
+#create-task-button:hover, #create-task-button:active {
   background-color: #228DE5;
   color: #FFF;
 }
@@ -134,7 +134,11 @@
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
 
 
